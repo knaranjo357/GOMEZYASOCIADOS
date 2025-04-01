@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 antialiased bg-white;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gray-900 text-white px-6 py-2 rounded-none hover:bg-gray-800 transition-colors;
+  }
+
+  .elegant-border {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gray-200;
+  }
+
+  .service-card {
+    @apply relative overflow-hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/5 opacity-0 transition-opacity duration-300;
+  }
+
+  .service-card:hover::before {
+    @apply opacity-100;
+  }
+}
